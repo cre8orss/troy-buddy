@@ -1,0 +1,11 @@
+.navbar-dark {
+  background: red;
+}
+
+.navbar-nav {
+  font-size: 36px;
+}
+
+.carousel .carousel-item {
+  height: 500px;
+}
