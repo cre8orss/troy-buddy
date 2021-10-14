@@ -8,6 +8,10 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link href="assets/style.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.0/font/bootstrap-icons.css">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
@@ -22,22 +26,22 @@
     <ul class="navbar-nav">
       <!-- Navbar links -->
       <li class="nav-item">
-        <a class="nav-link active" href="#">Home</a>
+        <a class="nav-link active" href="#"><i class="bi bi-house"></i>Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="suggest.html">Suggest</a>
+        <a class="nav-link" href="suggest.html"><i class="bi bi-lightbulb"></i>Suggest</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="explore.html">Explore</a>
+        <a class="nav-link" href="explore.html"><i class="bi bi-binoculars"></i>Explore</a>
       </li>
       <li>
-        <a class="nav-link" href="search.html">Search</a>
+        <a class="nav-link" href="search.html"><i class="bi bi-search"></i>Search</a>
       </li>
       <li>
-        <a class="nav-link" href="login.html">Log In</a>
+        <a class="nav-link" href="login.html"><i class="bi bi-box-arrow-in-right"></i>Log In</a>
       </li>
       <li>
-        <a class="nav-link" href="signup.html">Sign Up</a>
+        <a class="nav-link" href="signup.html"><i class="bi bi-pencil-square"></i>Sign Up</a>
       </li>
     </ul>
   </nav>
@@ -124,16 +128,32 @@
            wholesome shopping at the Waterfront Farmer’s Market, Troy offers a variety of 
            activities appealing to people of all ages and interests.</p>
       </div>
+      <div class="card" style="background-color: #6c782e;">
+        <h2>Join our Mailing List!</h2>
+        <div class="container">
+          <form>
+              <div class="mb-3">
+                  <label for="input-name" class="form-label">Name</label>
+                  <input type="name" class="form-control" id="input-name" aria-describedby="name-help" required placeholder="Enter your name.">
+              </div>
+              <div class="mb-3">
+                  <label for="input-email" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="input-email" aria-describedby="email-help" required placeholder="Enter your email.">
+              </div>
+              <button type="submit" class="btn btn-primary-1">Submit</button>
+          </form>
+        </div>
+      </div>
     </div>
     <div class="rightcolumn">
       <div class="card" style="background-color: #FDA909;">
         <h2>Now Trending</h2>
         <ol>
-          <li>Troy Farmer's Market</li>
-          <li>Iron Works Grill</li>
-          <li>Rensselaer Polytechnic Institute</li>
-          <li>Troy Savings Bank Music Hall</li>
-          <li>"Uncle" Sam Wilson Gravesite Oakwood Cemetery</li>   
+          <li><a href="https://www.troymarket.org/">Troy Farmer's Market</a></li>
+          <li><a href="https://www.facebook.com/IronWorksGrill/">Iron Works Grill</a></li>
+          <li><a href="https://rpi.edu/">Rensselaer Polytechnic Institute</a></li>
+          <li><a href="https://www.troymusichall.org/">Troy Savings Bank Music Hall</a></li>
+          <li><a href="https://www.newyorkupstate.com/capital-region/2016/01/uncle_sams_grave_where_is_it_what_to_expect_more_information.html">"Uncle" Sam Wilson Gravesite Oakwood Cemetery</a></li>   
         </ol>
       </div>
       <div class="card" style="background-color: #263857;">
