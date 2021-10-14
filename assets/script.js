@@ -65,17 +65,19 @@ for (const { geometry, properties } of geojson.features) {
 // });
 
 // creates draggable marker which generates coordinates based on position on map
-const coordinates = document.getElementById('coordinates');
-const marker = new mapboxgl.Marker({
-  draggable: true
-})
-  .setLngLat([-73.6775, 42.73])
-  .addTo(map);
+if (document.URL.includes("suggest.html")) {
+  const coordinates = document.getElementById('coordinates');
+  const marker = new mapboxgl.Marker({
+    draggable: true
+  })
+    .setLngLat([-73.6775, 42.73])
+    .addTo(map);
 
-function onDragEnd() {
-  const lngLat = marker.getLngLat();
-  coordinates.style.display = 'block';
-  coordinates.innerHTML = `Longitude: ${lngLat.lng}<br />Latitude: ${lngLat.lat}`;
+  function onDragEnd() {
+    const lngLat = marker.getLngLat();
+    coordinates.style.display = 'block';
+    coordinates.innerHTML = `Longitude: ${lngLat.lng}<br />Latitude: ${lngLat.lat}`;
+  }
+
+  marker.on('dragend', onDragEnd);
 }
-
-marker.on('dragend', onDragEnd);
