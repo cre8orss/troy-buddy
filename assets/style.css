@@ -1,6 +1,6 @@
 body {
-  /* padding: 20px; */
   background: #f1f1f1;
+  font-family: 'Patua One', cursive;
 }
 
 /* hides scroll bar */
@@ -87,4 +87,20 @@ body::-webkit-scrollbar {
 .btn-primary:hover {
   background-color: red;
   border-color: red;
+}
+
+.nav-link {
+  font-size: 24px;
+}
+
+.btn-primary-1 {
+  background-color: white;
+  border-color: #6c782e;
+  color: grey;
+}
+
+.btn-primary-1:hover {
+  background-color: #3a4119;
+  border-color: #6c782e;
+  color: white;
 }
