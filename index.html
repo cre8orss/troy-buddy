@@ -13,7 +13,7 @@
     crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <script src="assets/script.js"></script>
+  <script src="assets/script.js"></script> 
 </head>
 
 <body>
@@ -33,11 +33,16 @@
       <li>
         <a class="nav-link" href="search.html">Search</a>
       </li>
+      <li>
+        <a class="nav-link" href="login.html">Log In</a>
+      </li>
+      <li>
+        <a class="nav-link" href="signup.html">Sign Up</a>
+      </li>
     </ul>
   </nav>
 
   <div id="demo" class="carousel slide" data-bs-ride="carousel">
-
     <!-- Indicators/dots -->
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
@@ -67,14 +72,76 @@
     </button>
   </div>
 
+  <br>
+  <div class="input-group">
+    <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+    <button type="button" class="btn btn-outline-primary" >Search</button>
+    <button type="button" class="btn btn-outline-primary">Surprise Me!</button>
+  </div>
+
+  <br>
   <div class="container">
     <div class="row">
       <div class="col">
-        <h1>What is there to do in Troy?</h1>
+        <h1>Explore Troy!</h1>
       </div>
     </div>
   </div>
+  <br>
 
+  <div class="row">
+    <div class="leftcolumn">
+      <div class="card" style="background-color: lightgray;">
+        <p>
+          Get to know the ins and outs of Troy through TroyBuddy's
+          interface! From the hole-in-the-wall bars to histroically
+          rich streets, TroyBuddy has it all!
+        </p>
+        <h4>About Troy</h4>
+        <p>
+          Located on the Hudson River, the City of Troy boasts exquisite 
+          architecture, excellent educational institutions, strong residential 
+          communities and a dynamic business culture, working together to create 
+          an environment that embraces its history while preparing for an even 
+          stronger future.
+        </p>
+        <p>
+          No matter the season, the City of Troy has something for everyone to enjoy! 
+          There are dozens of family-friendly events, activities, live music, incredible
+          cuisine, and recreational opportunities to experience during your next visit to Troy.
+        </p>
+        <p>The City also is proud of the tremendous quality of life offered to its 
+          residents. Troy is home to a number of family friendly attractions and 
+          events such as the historic Troy Savings Bank Music Hall, featuring world 
+          renowned acoustics and an eclectic array of concerts by national and 
+          international artists. Events like the Annual Troy Victorian Stroll transform
+           the historic streets of downtown Troy into a magical stage of song, dance 
+           and family enjoyment, bringing the Victorian Era back to life. Free summer 
+           time festivals such as the River Street Festival, Rockin’ On The River, Chowder 
+           Fest and the Troy Pig Out offer fun for the entire family, all for free. The Arts 
+           Center of the Capital Region annually welcomes more 70,000 artists, patrons, 
+           students and performers at its 36,000-square-foot facility in Monument Square, or 
+           wholesome shopping at the Waterfront Farmer’s Market, Troy offers a variety of 
+           activities appealing to people of all ages and interests.</p>
+      </div>
+    </div>
+    <div class="rightcolumn">
+      <div class="card" style="background-color: #FDA909;">
+        <h2>Now Trending</h2>
+        <ol>
+          <li>Troy Farmer's Market</li>
+          <li>Iron Works Grill</li>
+          <li>Rensselaer Polytechnic Institute</li>
+          <li>Troy Savings Bank Music Hall</li>
+          <li>"Uncle" Sam Wilson Gravesite Oakwood Cemetery</li>   
+        </ol>
+      </div>
+      <div class="card" style="background-color: #263857;">
+        <iframe src="https://www.meteoblue.com/en/weather/widget/three/troy_united-states-of-america_5141502?geoloc=fixed&nocurrent=0&noforecast=0&days=4&tempunit=FAHRENHEIT&windunit=MILE_PER_HOUR&layout=dark"  frameborder="0" scrolling="NO" allowtransparency="true" sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox" style="height: 586px"></iframe>
+        <div><!-- DO NOT REMOVE THIS LINK --><a href="https://www.meteoblue.com/en/weather/week/troy_united-states-of-america_5141502?utm_source=weather_widget&utm_medium=linkus&utm_content=three&utm_campaign=Weather%2BWidget" target="_blank"></a></div>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>

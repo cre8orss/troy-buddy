@@ -1,3 +1,12 @@
+body {
+  padding: 20px;
+  background: #f1f1f1;
+}
+
+/* hides scroll bar */
+body::-webkit-scrollbar {
+  display: none;
+}
 .navbar-dark {
   background: red;
 }
@@ -35,14 +44,22 @@
 
 /* Create two unequal columns that floats next to each other */
 
+
 /* Left column */
 
 .leftcolumn {
+
+/* Left column */
+.leftcolumn {   
+
   float: left;
   width: 60%;
 }
 
 /* Right column */
+
+
+
 
 .rightcolumn {
   float: left;
@@ -51,7 +68,6 @@
 }
 
 /* Add a card effect for articles */
-
 .card {
   background-color: white;
   padding: 20px;
@@ -59,6 +75,9 @@
 }
 
 /* Clear floats after the columns */
+
+
+
 
 .row:after {
   content: "";
@@ -68,8 +87,13 @@
 
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
 
+
 @media screen and (max-width: 800px) {
   .leftcolumn, .rightcolumn {
+
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {   
+
     width: 100%;
     padding: 0;
   }
