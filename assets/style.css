@@ -88,3 +88,27 @@ body::-webkit-scrollbar {
   background-color: red;
   border-color: red;
 }
+
+/*CSS for Report A Problem Page*/
+#rap body {
+  background: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.wagwalkingweb.com%2Fmedia%2Farticles%2Fcity_walking%2FNY%2Ftroy%2Fdog-walking-troy-ny.jpg&f=1&nofb=1) no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  backdrop-filter: blur(2px);
+}
+
+#rap form {
+  background: white;
+  animation: 3s fadein_;
+}
+
+#rap h4 {
+  animation: 4s fadein_;
+  color: cornsilk;
+}
+
+@keyframes fadein_ {
+  0%   {opacity: 0.5; transform: translateY(-500px);}
+  100% {opacity: 1; transform: translateY(0px);}
+}
