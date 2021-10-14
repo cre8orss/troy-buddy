@@ -9,3 +9,79 @@
 .carousel .carousel-item {
   height: 500px;
 }
+
+.input-group {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.rounded {
+  border-color: red;
+  border-width: 2px;
+}
+
+.btn-outline-primary {
+  color: red;
+  border-color: red;
+  background-color: white;
+  border-width: 2px;
+}
+
+.btn-outline-primary:hover {
+  background-color: red;
+  border-color: red;
+}
+
+/* Create two unequal columns that floats next to each other */
+
+/* Left column */
+
+.leftcolumn {
+  float: left;
+  width: 60%;
+}
+
+/* Right column */
+
+.rightcolumn {
+  float: left;
+  width: 40%;
+  padding-left: 20px;
+}
+
+/* Add a card effect for articles */
+
+.card {
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/* Clear floats after the columns */
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+.btn-primary {
+  background-color: white;
+  border-color: red;
+  color: red;
+}
+
+.btn-primary:hover {
+  background-color: red;
+  border-color: red;
+}
