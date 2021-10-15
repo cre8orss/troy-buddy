@@ -1,6 +1,6 @@
 body {
-  /* padding: 20px; */
   background: #f1f1f1;
+  font-family: 'Patua One', cursive;
 }
 
 /* hides scroll bar */
@@ -17,6 +17,10 @@ body::-webkit-scrollbar {
 
 .carousel .carousel-item {
   height: 500px;
+}
+
+.carousel .carousel-item img {
+  position: center;
 }
 
 .input-group {
@@ -89,6 +93,7 @@ body::-webkit-scrollbar {
   border-color: red;
 }
 
+
 /*CSS for Report A Problem Page*/
 #rap body {
   background: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.wagwalkingweb.com%2Fmedia%2Farticles%2Fcity_walking%2FNY%2Ftroy%2Fdog-walking-troy-ny.jpg&f=1&nofb=1) no-repeat;
@@ -112,3 +117,20 @@ body::-webkit-scrollbar {
   0%   {opacity: 0.5; transform: translateY(-500px);}
   100% {opacity: 1; transform: translateY(0px);}
 }
+
+.nav-link {
+  font-size: 24px;
+}
+
+.btn-primary-1 {
+  background-color: white;
+  border-color: #6c782e;
+  color: grey;
+}
+
+.btn-primary-1:hover {
+  background-color: #3a4119;
+  border-color: #6c782e;
+  color: white;
+}
+
