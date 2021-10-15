@@ -115,6 +115,9 @@ body::-webkit-scrollbar {
   color: white;
 }
 
+a:link {
+  text-decoration: none;
+}
 /* Search Page Styles */
 #search-bar {
   position: absolute;
