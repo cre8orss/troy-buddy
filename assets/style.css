@@ -19,6 +19,10 @@ body::-webkit-scrollbar {
   height: 500px;
 }
 
+.carousel .carousel-item img {
+  position: center;
+}
+
 .input-group {
   width: 50%;
   margin-left: auto;
