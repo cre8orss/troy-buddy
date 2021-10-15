@@ -19,6 +19,16 @@ body::-webkit-scrollbar {
   height: 500px;
 }
 
+.carousel .carousel-item img {
+  position: center;
+}
+
+.carousel-inner > .carousel-item > img {
+  width: 100%;
+  height: 100vh;
+}
+
+
 .input-group {
   width: 50%;
   margin-left: auto;
@@ -107,4 +117,53 @@ body::-webkit-scrollbar {
 
 a:link {
   text-decoration: none;
+}
+/* Search Page Styles */
+#search-bar {
+  position: absolute;
+  top: 60%;
+  left: 25%;
+  width: 50%;
+}
+
+#search-btn {
+  position: absolute;
+  top: 60%;
+  left: 75%;
+}
+
+#search-logo {
+  position: absolute;
+  height: 700px;
+  left: 27%;
+  bottom: 18%;
+}
+
+#search-icon {
+  height: 20px;
+}
+
+/*CSS for report a problem page */
+
+#rap body {
+  background: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.wagwalkingweb.com%2Fmedia%2Farticles%2Fcity_walking%2FNY%2Ftroy%2Fdog-walking-troy-ny.jpg&f=1&nofb=1) no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  backdrop-filter: blur(2px);
+}
+
+#rap form {
+  background: white;
+  animation: 3s fadein_;
+}
+
+#rap h4 {
+  animation: 4s fadein_;
+  color: cornsilk;
+}
+
+@keyframes fadein_ {
+  0%   {opacity: 0.5; transform: translateY(-500px);}
+  100% {opacity: 1; transform: translateY(0px);}
 }

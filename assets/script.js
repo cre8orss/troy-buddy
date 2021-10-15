@@ -8,7 +8,6 @@ const map = new mapboxgl.Map({
   zoom: 15
 });
 
-// code from the next step will go here!
 const geojson = {
   type: 'FeatureCollection',
   features: [
@@ -71,6 +70,8 @@ if (document.URL.includes("suggest.html")) {
     draggable: true
   })
     .setLngLat([-73.6775, 42.73])
+    .setPopup(new mapboxgl.Popup({offset: 50})
+    .setHTML('<h3>Want to suggest this location?</h3><p>Fill out the form on the right.</p>'))
     .addTo(map);
 
   function onDragEnd() {
