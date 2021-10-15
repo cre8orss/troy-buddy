@@ -108,3 +108,24 @@ body::-webkit-scrollbar {
   border-color: #6c782e;
   color: white;
 }
+
+/* Search Page Styles */
+#search-bar {
+  position: absolute;
+  top: 60%;
+  left: 25%;
+  width: 50%;
+}
+
+#search-btn {
+  position: absolute;
+  top: 60%;
+  left: 75%;
+}
+
+#search-logo {
+  position: absolute;
+  height: 700px;
+  left: 27%;
+  bottom: 18%;
+}
