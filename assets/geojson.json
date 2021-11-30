@@ -1,0 +1,27 @@
+{
+	"type": "FeatureCollection",
+	"features": [
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [-73.67746684445308, 42.73008980117925]
+			},
+			"properties": {
+				"title": "Rensselaer Polytechnic Institute",
+				"description": "Landmark"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [-73.67893648495593, 42.726907027257965]
+			},
+			"properties": {
+				"title": "Big Apple Pizzeria",
+				"description": "Restaurant"
+			}
+		}
+	]
+}
