@@ -76,7 +76,7 @@ $.getJSON("assets/geojson.json", function (json) {
 	// });
 
 	// creates draggable marker which generates coordinates based on position on map
-	if (document.URL.includes("suggest.html")) {
+	if (document.URL.includes("suggest.php")) {
 		const coordinates = document.getElementById("coordinates");
 		const marker = new mapboxgl.Marker({
 			draggable: true,
