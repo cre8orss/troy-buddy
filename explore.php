@@ -68,31 +68,31 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-sm navbar-dark justify-content-center sticky-top">
     <div class="container">
-      <a class="navbar-brand" href="index.html">
+      <a class="navbar-brand" href="index.php">
         <img src="assets/images/TroyBuddy-logos_transparent.png" alt="TroyBuddy logo" height="48">
       </a>
       <ul class="navbar-nav">
         <!-- Navbar links -->
         <li class="nav-item">
-          <a class="nav-link" href="index.html"><i class="bi bi-house"></i>Home</a>
+          <a class="nav-link" href="index.php"><i class="bi bi-house"></i>Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="suggest.html"><i class="bi bi-lightbulb"></i>Suggest</a>
+          <a class="nav-link" href="suggest.php"><i class="bi bi-lightbulb"></i>Suggest</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="explore.html"><i class="bi bi-binoculars"></i>Explore</a>
+          <a class="nav-link active" href="explore.php"><i class="bi bi-binoculars"></i>Explore</a>
         </li>
         <li>
-          <a class="nav-link" href="search.html"><i class="bi bi-search"></i>Search</a>
+          <a class="nav-link" href="search.php"><i class="bi bi-search"></i>Search</a>
         </li>
         <li>
-          <a class="nav-link" href="login.html"><i class="bi bi-box-arrow-in-right"></i>Log In</a>
+          <a class="nav-link" href="login.php"><i class="bi bi-box-arrow-in-right"></i>Log In</a>
         </li>
         <li>
-          <a class="nav-link" href="signup.html"><i class="bi bi-pencil-square"></i>Sign Up</a>
+          <a class="nav-link" href="signup.php"><i class="bi bi-pencil-square"></i>Sign Up</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="reportaproblem.html"><i class="bi bi-binoculars"></i>Report A Problem</a>
+          <a class="nav-link" href="reportaproblem.php"><i class="bi bi-binoculars"></i>Report A Problem</a>
         </li>
       </ul>
     </div>
