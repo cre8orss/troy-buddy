@@ -19,3 +19,13 @@ VALUES
 
 ALTER TABLE `locations` ADD `x_coor` FLOAT NOT NULL AFTER `coordinates`, ADD `y_coor` FLOAT NOT NULL AFTER `x_coor`;
 ALTER TABLE `locations` DROP `coordinates`;
+
+
+CREATE TABLE IF NOT EXISTS users (
+  id int(11) unsigned NOT NULL AUTO_INCREMENT,
+  username varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  password varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  fname varchar(100) NOT NULL,
+  PRIMARY KEY (id),
+  UNIQUE KEY username (username)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
