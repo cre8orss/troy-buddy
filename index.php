@@ -133,26 +133,6 @@
           wholesome shopping at the Waterfront Farmer’s Market, Troy offers a variety of
           activities appealing to people of all ages and interests.</p>
       </div>
-      <div class="card" style="background-color: #6c782e;">
-        <h2>Join our Mailing List!</h2>
-        <div class="container">
-          <form>
-            <div class="mb-3">
-              <label for="input-name" class="form-label">Name</label>
-              <input type="name" class="form-control" id="input-name" aria-describedby="name-help" required
-                placeholder="Enter your name.">
-            </div>
-            <div class="mb-3">
-              <label for="input-email" class="form-label">Email</label>
-              <input type="email" class="form-control" id="input-email" aria-describedby="email-help" required
-                placeholder="Enter your email.">
-            </div>
-            <button type="submit" class="btn btn-primary-1">Submit</button>
-          </form>
-        </div>
-      </div>
-    </div>
-    <div class="rightcolumn">
       <div class="card" style="background-color: #FDA909;">
         <h2>Now Trending</h2>
         <ol>
@@ -165,6 +145,8 @@
               Sam Wilson Gravesite Oakwood Cemetery</a></li>
         </ol>
       </div>
+    </div>
+    <div class="rightcolumn">
       <div class="card" style="background-color: #263857;">
         <iframe
           src="https://www.meteoblue.com/en/weather/widget/three/troy_united-states-of-america_5141502?geoloc=fixed&nocurrent=0&noforecast=0&days=4&tempunit=FAHRENHEIT&windunit=MILE_PER_HOUR&layout=dark"
