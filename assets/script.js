@@ -78,6 +78,8 @@ $.getJSON("assets/geojson.json", function (json) {
 	// creates draggable marker which generates coordinates based on position on map
 	if (document.URL.includes("suggest.php")) {
 		const coordinates = document.getElementById("coordinates");
+		const lngForm = document.getElementById("inputLongitude");
+		const latForm = document.getElementById("inputLatitude");
 		const marker = new mapboxgl.Marker({
 			draggable: true,
 		})
@@ -88,7 +90,9 @@ $.getJSON("assets/geojson.json", function (json) {
 		function onDragEnd() {
 			const lngLat = marker.getLngLat();
 			coordinates.style.display = "block";
-			coordinates.innerHTML = `Longitude: ${lngLat.lng}<br />Latitude: ${lngLat.lat}`;
+			coordinates.innerHTML = `Longitude: <p id="longitude">${lngLat.lng}</p><br />Latitude: <p id="latitude">${lngLat.lat}</p>`;
+			lngForm.value = lngLat.lng;
+			latForm.value = lngLat.lat;
 		}
 
 		marker.on("dragend", onDragEnd);

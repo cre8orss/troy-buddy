@@ -1,0 +1,2 @@
+ALTER TABLE `locations` ADD `x_coor` FLOAT NOT NULL AFTER `coordinates`, ADD `y_coor` FLOAT NOT NULL AFTER `x_coor`;
+ALTER TABLE `locations` DROP `coordinates`;
