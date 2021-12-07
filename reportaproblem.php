@@ -84,4 +84,18 @@
         <br>
     </form>
 </div>
+<div class="issues card w-50 container">
+  <div class="card-body">
+    <h5 class="card-title">Pending Issues</h5>
+    <p>Bootleggers page info not up-to-date. Currently being resolved.</p>
+    <p>Some users not receiving emails from mailing list. Currently being resolved.</p>
+    <p>Need colorblind support.</p>
+    <br>
+    <h5 class="card-title">Resolved Issues</h5>
+    <p>Waterworks page info not up-to-date. Resolved.</p>
+    <p>Mailing List link not working. Resolved.</p>
+  </div>
+</div>
+</body>
+
 </body>
