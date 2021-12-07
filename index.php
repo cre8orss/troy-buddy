@@ -66,13 +66,13 @@
     <!-- The slideshow/carousel -->
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="assets/images/bootleggers.png" alt="Bootleggers">
+        <img src="assets/images/bootleggers.png" alt="Bootleggers" style="width: 50%; display: block; margin-left: auto; margin-right: auto;">
       </div>
       <div class="carousel-item">
-        <img src="assets/images/troyMonument.png" alt="Troy Monument">
+        <img src="assets/images/troyMonument.png" alt="Troy Monument" style="width: 50%; display: block; margin-left: auto; margin-right: auto;">
       </div>
       <div class="carousel-item">
-        <img src="assets/images/uncleSamMonument-cropped.png" alt="Uncle Sam Monument">
+        <img src="assets/images/troyNYlogo.png" alt="Troy Logo" style="width: 50%; display: block; margin-left: auto; margin-right: auto;">
       </div>
     </div>
 

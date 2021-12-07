@@ -175,3 +175,8 @@ a:link {
   margin-left: auto;
   margin-right: auto;
 }
+
+.carousel-control-next,
+.carousel-control-prev /*, .carousel-indicators */ {
+    filter: invert(100%);
+}
