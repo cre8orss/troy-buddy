@@ -66,13 +66,13 @@
     <!-- The slideshow/carousel -->
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="assets/images/bootleggers.png" alt="Bootleggers">
+        <img src="assets/images/bootleggers.png" alt="Bootleggers" style="width: 50%; display: block; margin-left: auto; margin-right: auto;">
       </div>
       <div class="carousel-item">
-        <img src="assets/images/troyMonument.png" alt="Troy Monument">
+        <img src="assets/images/troyMonument.png" alt="Troy Monument" style="width: 50%; display: block; margin-left: auto; margin-right: auto;">
       </div>
       <div class="carousel-item">
-        <img src="assets/images/uncleSamMonument.png" alt="Uncle Sam Monument">
+        <img src="assets/images/troyNYlogo.png" alt="Troy Logo" style="width: 50%; display: block; margin-left: auto; margin-right: auto;">
       </div>
     </div>
 
@@ -83,14 +83,6 @@
     <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
       <span class="carousel-control-next-icon"></span>
     </button>
-  </div>
-
-  <br>
-  <div class="input-group">
-    <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
-      aria-describedby="search-addon" />
-    <button type="button" class="btn btn-outline-primary">Search</button>
-    <button type="button" class="btn btn-outline-primary">Surprise Me!</button>
   </div>
 
   <br>

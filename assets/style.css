@@ -110,7 +110,7 @@ body::-webkit-scrollbar {
 }
 
 .btn-primary-1:hover {
-  background-color: #3a4119;
+  background-color: #474d31;
   border-color: #6c782e;
   color: white;
 }
@@ -166,4 +166,17 @@ a:link {
 @keyframes fadein_ {
   0%   {opacity: 0.5; transform: translateY(-500px);}
   100% {opacity: 1; transform: translateY(0px);}
+}
+
+.search_table {
+  font-size: 26px;
+  width: 75%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.carousel-control-next,
+.carousel-control-prev /*, .carousel-indicators */ {
+    filter: invert(100%);
 }
