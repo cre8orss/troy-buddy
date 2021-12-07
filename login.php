@@ -57,7 +57,10 @@
 
   <br>
   <div class="container">
-    <form class="needs-validation">
+    <form action="db.php" method="post" class="needs-validation">
+      <?php if (isset($_GET['error'])) { ?>
+        <p class="error"><?php echo $_GET['error']; ?></p>
+      <?php } ?>
         <div class="mb-3">
             <label for="input-email" class="form-label">Email</label>
             <input type="email" class="form-control" id="input-email" aria-describedby="email-help" required placeholder="Enter your email.">

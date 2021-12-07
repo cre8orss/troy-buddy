@@ -1,3 +1,7 @@
+<?php 
+  session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,7 +46,7 @@
           <a class="nav-link" href="search.php"><i class="bi bi-search"></i>Search</a>
         </li>
         <li>
-          <a class="nav-link" href="login.php"><i class="bi bi-box-arrow-in-right"></i>Log In</a>
+          <a id="log_toggle" class="nav-link" href="login.php"><i class="bi bi-box-arrow-in-right"></i>Log In</a>
         </li>
         <li>
           <a class="nav-link" href="signup.php"><i class="bi bi-pencil-square"></i>Sign Up</a>
@@ -179,3 +183,17 @@
 </body>
 
 </html>
+
+<?php 
+if (isset($_SESSION['id']) && isset($_SESSION['username'])) {
+?>
+
+<script>
+  var nav = document.getElementById("log_toggle");
+  nav.href = "login.php";
+  nav.innerHTML = "Log In";
+</script>
+
+<?php
+}
+?>
