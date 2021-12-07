@@ -6,18 +6,7 @@ $pass = '';
 // Create connection
 $dbconn = new PDO("mysql:host=localhost;dbname=troybuddy", $user, $pass);
 
-unset($_POST);
-if (isset($_POST['suggestSubmit'])) {
-	$loc_name = addslashes($_REQUEST['locationName']);
-	$loc_desc = addslashes($_REQUEST['desc']);
-	$loc_type = addslashes($_REQUEST['locationType']);
-	$x_coor = $_REQUEST['longitude'];
-	$y_coor = $_REQUEST['latitude'];
-
-	printf('%s, %s, %s, %s, %s', $loc_name, $loc_desc, $loc_type, $x_coor, $y_coor);
-	$sqlSuggest = "INSERT INTO troybuddy.locations (loc_name, loc_type, loc_desc, x_coor, y_coor) VALUES ('$loc_name','$loc_type','$loc_desc','$x_coor','$y_coor')";
-	$stmtSuggest = $dbconn->query($sqlSuggest);
-}
+// unset($_POST);
 
 
 ?>
@@ -114,6 +103,9 @@ if (isset($_POST['suggestSubmit'])) {
 					<a class="nav-link" href="signup.html"><i class="bi bi-pencil-square"></i>Sign Up</a>
 				</li>
 				<li class="nav-item">
+					<a class="nav-link" href="mailinglist.php"><i class="bi bi-envelope-plus"></i>Mailing List</a>
+				</li>
+				<li class="nav-item">
 					<a class="nav-link" href="reportaproblem.html"><i class="bi bi-binoculars"></i>Report A Problem</a>
 				</li>
 			</ul>
@@ -127,31 +119,48 @@ if (isset($_POST['suggestSubmit'])) {
 				<div id="map"></div>
 			</div>
 			<div class="col">
-				<form method="POST" action="suggest.php">
-					<div class="form-group">
-						<label for="inputName">Location Name:</label>
-						<input type="text" class="form-control" id="inputName" name="locationName" placeholder="Enter location name" />
-					</div>
-					<div class="form-group">
-						<label for="inputLocationType">Location Type:</label>
-						<input type="text" class="form-control" id="inputLocationType" name="locationType" placeholder="Enter location type" />
-						<small id="inputLocationTypeHelp" class="form-text text-muted">Restaurant, monument, scenic view, etc.</small>
-					</div>
-					<div class="form-group">
-						<label for="inputDesc">Description:</label>
-						<input type="text" class="form-control" id="inputDesc" name="desc" placeholder="" />
-					</div>
+				<div class="row">
+					<form method="POST" action="suggest.php">
+						<div class="form-group">
+							<label for="inputName">Location Name:</label>
+							<input type="text" class="form-control" id="inputName" name="locationName" placeholder="Enter location name" />
+						</div>
+						<div class="form-group">
+							<label for="inputLocationType">Location Type:</label>
+							<input type="text" class="form-control" id="inputLocationType" name="locationType" placeholder="Enter location type" />
+							<small id="inputLocationTypeHelp" class="form-text text-muted">Restaurant, monument, scenic view, etc.</small>
+						</div>
+						<div class="form-group">
+							<label for="inputDesc">Description:</label>
+							<input type="text" class="form-control" id="inputDesc" name="desc" placeholder="" />
+						</div>
 
-					<div class="form-group">
-						<label for="inputLongitude">Longitude:</label>
-						<input type="text" class="form-control" id="inputLongitude" name="longitude" placeholder="" />
-					</div>
-					<div class="form-group">
-						<label for="inputLatitude">Latitude:</label>
-						<input type="text" class="form-control" id="inputLatitude" name="latitude" placeholder="" />
-					</div>
-					<button type="submit" class="btn btn-primary" name="suggestSubmit">Submit</button>
-				</form>
+						<div class="form-group">
+							<label for="inputLongitude">Longitude:</label>
+							<input type="text" class="form-control" id="inputLongitude" name="longitude" placeholder="" />
+						</div>
+						<div class="form-group">
+							<label for="inputLatitude">Latitude:</label>
+							<input type="text" class="form-control" id="inputLatitude" name="latitude" placeholder="" />
+						</div>
+						<button type="submit" class="btn btn-primary" name="suggestSubmit">Submit</button>
+					</form>
+				</div>
+				<div class="row">
+					<?php
+					if (isset($_POST['suggestSubmit'])) {
+						$loc_name = addslashes($_REQUEST['locationName']);
+						$loc_desc = addslashes($_REQUEST['desc']);
+						$loc_type = addslashes($_REQUEST['locationType']);
+						$x_coor = $_REQUEST['longitude'];
+						$y_coor = $_REQUEST['latitude'];
+
+						printf('%s, %s, %s, %s, %s', $loc_name, $loc_desc, $loc_type, $x_coor, $y_coor);
+						$sqlSuggest = "INSERT INTO troybuddy.locations (loc_name, loc_type, loc_desc, x_coor, y_coor) VALUES ('$loc_name','$loc_type','$loc_desc','$x_coor','$y_coor')";
+						$stmtSuggest = $dbconn->query($sqlSuggest);
+					}
+					?>
+				</div>
 			</div>
 		</div>
 	</div>
