@@ -45,6 +45,8 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
       if($result){
         //What you do here is up to you!
         echo 'Thank you for registering with our website.';
+        header("Location: index.php");
+        exit();
       }
     }   
   }
