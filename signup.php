@@ -14,7 +14,6 @@ require 'lib/password.php';
  */
 require 'connect.php';
 
-
 //If the POST var "register" exists (our submit button), then we can
 //assume that the user has submitted the registration form.
 if(isset($_POST['register'])){
