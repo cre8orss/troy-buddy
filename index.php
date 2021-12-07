@@ -72,7 +72,7 @@
         <img src="assets/images/troyMonument.png" alt="Troy Monument">
       </div>
       <div class="carousel-item">
-        <img src="assets/images/uncleSamMonument.png" alt="Uncle Sam Monument">
+        <img src="assets/images/uncleSamMonument-cropped.png" alt="Uncle Sam Monument">
       </div>
     </div>
 
@@ -83,14 +83,6 @@
     <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
       <span class="carousel-control-next-icon"></span>
     </button>
-  </div>
-
-  <br>
-  <div class="input-group">
-    <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
-      aria-describedby="search-addon" />
-    <button type="button" class="btn btn-outline-primary">Search</button>
-    <button type="button" class="btn btn-outline-primary">Surprise Me!</button>
   </div>
 
   <br>

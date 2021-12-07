@@ -58,11 +58,11 @@
   <img id="search-logo" src="assets/images/TroyBuddy-logos_black.png" alt="TroyBuddy logo">
   
   <!-- Search Bar -->
-  <form>
+  <form method="post">
     <div class="form-group">
-      <input type="search" class="form-control rounded" id="search-bar" aria-label="Search" aria-describedby="search-addon" placeholder="Search Troy...">
+      <input type="search" name="search" class="form-control rounded" id="search-bar" aria-label="Search" aria-describedby="search-addon" placeholder="Search Troy...">
     </div>
-    <button type="submit" id="search-btn" class="btn btn-outline-primary">
+    <button type="submit" id="search-btn" class="btn btn-outline-primary" name="submit">
       <img id="search-icon" src="assets/images/baseline_search_black_24dp.png" alt="search icon"></img>
       Search
     </button>
@@ -70,3 +70,50 @@
 </body>
 
 </html>
+
+<?php
+
+$con = new PDO("mysql:host=localhost;dbname=troybuddy",'root','');
+
+if (isset($_POST["submit"])) {
+	$str = $_POST["search"];
+	$sth = $con->prepare("SELECT * FROM `search_locations` WHERE name = '$str'");
+
+	$sth -> setFetchMode(PDO:: FETCH_OBJ);
+	$sth -> execute();
+
+	if($row = $sth->fetch())
+	{
+		?>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		<table class="form-control search_table">
+			<tr>
+				<th>Name: </th>
+				<td><?php echo $row->name; ?></td>
+			</tr>
+			<tr>
+				<th>Address: </th>
+				<td><?php echo $row->address;?></td>
+			</tr>
+            <tr>
+				<th>Phone: </th>
+				<td><a href="tel:<?php echo $row->phone;?>"><?php echo $row->phone;?></a></td>
+			</tr>
+            <tr>
+				<th>Website: </th>
+				<td><a href="<?php echo $row->website;?>"><?php echo $row->website;?></a></td>
+			</tr>
+
+		</table>
+<?php 
+	}
+		
+		
+		else{
+			echo '<script>alert("Location is not in the TroyBuddy Database.")</script>';
+		}
+
+
+}
+
+?>
