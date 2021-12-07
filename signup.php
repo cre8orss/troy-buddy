@@ -1,5 +1,54 @@
 <?php
 session_start();
+
+/**
+ * Include ircmaxell's password_compat library.
+ */
+require 'lib/password.php';
+
+$dbhost= "localhost";
+$dbusername= "root";
+$dbpassword = "";
+$dbname = "troybuddy";
+
+$conn = mysqli_connect($dbhost, $dbusername, $dbpassword, $dbname);
+if (!$conn) {
+    echo "Connection failed!";
+}
+
+if (isset($_POST['username']) && isset($_POST['password'])) {
+  function validate($data) {
+     $data = trim($data);
+     $data = stripslashes($data);
+     $data = htmlspecialchars($data);
+     return $data;
+  }
+
+  $uname = validate($_POST['username']);
+  $pass = validate($_POST['password']);
+
+  if (empty($uname) || empty($pass)) {
+    header("Location: login.php?error=User Name/Password is required");
+    exit();
+  } else {
+    $sql = "SELECT * FROM users WHERE username = '$uname'";
+    $result = mysqli_query($conn, $sql);
+    if (mysqli_num_rows($result) > 0) {
+      header('Location: login.php?error=That username already exists!');
+      exit();
+    } else {
+      //Hash the password as we do NOT want to store our passwords in plain text.
+      $passwordHash = password_hash($pass, PASSWORD_BCRYPT, array("cost" => 12));
+      $sql = "INSERT INTO users (username, password) VALUES ('$uname', '$passwordHash')";
+      $result = mysqli_query($conn, $sql);
+      //If the signup process is successful.
+      if($result){
+        //What you do here is up to you!
+        echo 'Thank you for registering with our website.';
+      }
+    }   
+  }
+}
 ?>
 
 <!DOCTYPE html>
