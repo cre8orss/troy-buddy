@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 07, 2021 at 04:14 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.0.13
+-- Generation Time: Dec 07, 2021 at 04:28 PM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -30,9 +30,19 @@ SET time_zone = "+00:00";
 CREATE TABLE `locations` (
   `id` int(11) NOT NULL,
   `loc_name` varchar(100) NOT NULL,
-  `description` varchar(1000) NOT NULL,
-  `coordinates` float NOT NULL
+  `loc_type` varchar(100) NOT NULL,
+  `loc_desc` varchar(1000) NOT NULL,
+  `x_coor` float NOT NULL,
+  `y_coor` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `locations`
+--
+
+INSERT INTO `locations` (`id`, `loc_name`, `loc_type`, `loc_desc`, `x_coor`, `y_coor`) VALUES
+(3, 'Amante\'s Pizza', 'Restaurant', 'A broad mix of Italian, American & global comfort foods is dished out in a quaint house.', -73.6754, 42.7366),
+(11, 'Famous Lunch', 'Restaurant', 'Narrow joint with counter seats serving hot dogs, burgers & breakfast, plus sides & pie, since 1932.', -73.6891, 42.7288);
 
 -- --------------------------------------------------------
 
@@ -52,11 +62,11 @@ CREATE TABLE `search_locations` (
 --
 
 INSERT INTO `search_locations` (`name`, `address`, `phone`, `website`) VALUES
-('La Capital Tacos', '161 4th St, Troy, NY 12180', '(518) 244-5132', 'https://www.lacapitaltacostroy.com/'),
 ('Dinosaur BBQ', '377 River St, Troy, NY 12180', '(518) 308-0400', 'https://www.dinosaurbarbque.com'),
+('La Capital Tacos', '161 4th St, Troy, NY 12180', '(518) 244-5132', 'https://www.lacapitaltacostroy.com/'),
 ('The Whistling Kettle', '254 Broadway, Troy, NY 12180', '(518) 874-1938', 'https://www.thewhistlingkettle.com'),
 ('Uncle Sam Grave', '50 101st Street Troy, NY 12180', '(518) 272-7520', 'https://www.oakwoodcemetery.org/'),
-('Rensselaer Polytechnic Institute', '110 8th Street, Troy NY 12180', '(518) 276-6000', 'https://www.rpi.edu/'),
+('Rensselaer Poyltechnic Institute', '110 8th Street, Troy NY 12180', '(518) 276-6000', 'https://www.rpi.edu/'),
 ('Russell Sage College', '65 1st St, Troy, NY 12180', '(518) 244-2000', 'https://www.sage.edu/'),
 ('Monument Square', '2 1st St, Troy, NY 12180', '(518) 272 2646', 'https://www.monumentsquareapts.com/'),
 ('Troy Savings Bank Music Hall', '30 2nd St, Troy, NY 12180', '(518) 273 0038', 'https://www.troymusichall.org/');
@@ -98,7 +108,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `locations`
 --
 ALTER TABLE `locations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `users`
