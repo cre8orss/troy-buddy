@@ -190,8 +190,8 @@ if (isset($_SESSION['id']) && isset($_SESSION['username'])) {
 
 <script>
   var nav = document.getElementById("log_toggle");
-  nav.href = "login.php";
-  nav.innerHTML = "Log In";
+  nav.href = "logout.php";
+  nav.innerHTML = "Log Out";
 </script>
 
 <?php

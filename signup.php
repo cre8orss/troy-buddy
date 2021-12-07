@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -74,7 +78,7 @@
             <label for="password-email" class="form-label">Password</label>
             <input type="password" class="form-control" id="input-password" name="up2" aria-describedby="password-help" required placeholder="Enter your password">
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" name="register" class="btn btn-primary">Submit</button>
     </form>
   </div>
 </body>
