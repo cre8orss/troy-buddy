@@ -60,7 +60,7 @@
 
 <div class="w-50 container">
     <h4 class="mt-5 display-3">Concerns? Fill Out This Form</h4>
-    <form class="container mt-5 border-0 rounded needs-validation novalidate" action="mailto:lourdes.frempong@me.com">
+    <form class="container mt-5 border-0 rounded needs-validation novalidate" action="email.php">
         <br>
         <div class="form-group my-3 position-relative">
             <label for="Fname" class="fs-5">First Name</label>
