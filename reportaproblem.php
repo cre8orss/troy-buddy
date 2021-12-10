@@ -64,19 +64,19 @@
         <br>
         <div class="form-group my-3 position-relative">
             <label for="Fname" class="fs-5">First Name</label>
-            <input type="text" class="form-control form-control-lg border-danger" placeholder="Required" id="Fname" required>
+            <input type="text" class="form-control form-control-lg border-danger" placeholder="Required" id="Fname" name="Fname" required>
         </div>
         <div class="form-group my-3">
             <label for="LName" class="fs-5">Last Name</label>
-            <input type="text" class="form-control form-control-lg input border-danger" placeholder="Required" id="LName" required>
+            <input type="text" class="form-control form-control-lg input border-danger" placeholder="Required" id="LName" name="Lname" required>
         </div>
         <div class="form-group my-3">
             <label for="emailaddress" class="fs-5">Email Address</label>
-            <input type="email" class="form-control form-control-lg border-danger" placeholder="Required" id="emailaddress" required>
+            <input type="email" class="form-control form-control-lg border-danger" placeholder="Required" id="emailaddress" name="emailaddress" required>
         </div>
         <div class="form-group my-3">
             <label for="msg" class="fs-5">How Can We Help You</label>
-            <textarea class="form-control form-control-lg border-danger" id="msg" rows="5"></textarea>
+            <textarea class="form-control form-control-lg border-danger" id="msg" name="msg" rows="5"></textarea>
         </div>
         <br>
         <button type="submit" class="btn btn-danger btn-lg">Submit</button>
