@@ -9,18 +9,19 @@ $sqlLocTable = 'SELECT * FROM troybuddy.locations';
 $stmtLocTable = $dbconn->query($sqlLocTable);
 $rowsLocTable = $stmtLocTable->fetchAll();
 
-
+// code that submits the location information into the database
 if (isset($_POST['suggestSubmit'])) {
-	$loc_name = addslashes($_REQUEST['locationName']);
+	$loc_name = addslashes($_REQUEST['locationName']); // the addslashes escapes characters that would otherwise create errors
 	$loc_desc = addslashes($_REQUEST['desc']);
 	$loc_type = addslashes($_REQUEST['locationType']);
 	$lng = $_REQUEST['longitude'];
 	$lat = $_REQUEST['latitude'];
 
-	// printf('%s, %s, %s, %s, %s', $loc_name, $loc_desc, $loc_type, $lng, $lat);
+	// inserts data into the locations table
 	$sqlSuggest = "INSERT INTO troybuddy.locations (loc_name, loc_type, loc_desc, lng, lat) VALUES ('$loc_name','$loc_type','$loc_desc','$lng','$lat')";
 	$stmtSuggest = $dbconn->query($sqlSuggest);
 
+	// reads through entire locations table and generates the geojson.json file for the Mapbox API
 	$geojson = '{
 		"type": "FeatureCollection",
 		"features": [';
@@ -41,16 +42,51 @@ if (isset($_POST['suggestSubmit'])) {
 	}
 	$geojsonfinal = rtrim($geojson, ", ");
 	$geojsonfinal .= ']}';
-	// echo $geojsonfinal;
-	$myfile = fopen("assets/test.json", "w") or die("Unable to open file.");
+
+	// opens the geojson.json file, writes contents of geojsonfinal variable, and then closes file
+	$myfile = fopen("assets/geojson.json", "w") or die("Unable to open file.");
 	fwrite($myfile, $geojsonfinal);
 	fclose($myfile);
+
+	header("Refresh:0");
 }
 
+// testing function to print out the entire locations table
 if (isset($_POST['printAllLoc'])) {
 	foreach ($rowsLocTable as $loc) {
 		printf("%s %s %s %s %s <br>", $loc['loc_name'], $loc['loc_type'], $loc['loc_desc'], $loc['lng'], $loc['lat']);
 	}
+}
+
+// reloads the locations from the locations table if for some reason they don't load in
+if (isset($_POST['jsonReload'])) {
+	$geojson = '{
+		"type": "FeatureCollection",
+		"features": [';
+
+	foreach ($rowsLocTable as $loc) {
+		$geojson .= '{
+			"type": "Feature",
+			 "geometry": {
+				 "type": "Point",
+				 "coordinates": [' . $loc['lng'] . ',' . $loc['lat'] . ']
+			 },
+			 "properties": {
+				 "title": "' . $loc['loc_name'] . '",
+				 "description": "' . $loc['loc_desc'] . '",
+				"locationType": "' . $loc['loc_type'] . '"
+			 }
+		},';
+	}
+	$geojsonfinal = rtrim($geojson, ", ");
+	$geojsonfinal .= ']}';
+
+	// opens the geojson.json file, writes contents of geojsonfinal variable, and then closes file
+	$myfile = fopen("assets/geojson.json", "w") or die("Unable to open file.");
+	fwrite($myfile, $geojsonfinal);
+	fclose($myfile);
+
+	header("Refresh:0");
 }
 
 ?>
@@ -164,6 +200,8 @@ if (isset($_POST['printAllLoc'])) {
 			</div>
 			<div class="col">
 				<div class="row">
+					<!-- form that asks user to submit location name, type, and description
+					longtitude and latitude are filled in by Mapbox pointer and not user -->
 					<form method="POST" action="suggest.php">
 						<div class="form-group">
 							<label for="inputName">Location Name:</label>
@@ -171,8 +209,15 @@ if (isset($_POST['printAllLoc'])) {
 						</div>
 						<div class="form-group">
 							<label for="inputLocationType">Location Type:</label>
-							<input type="text" class="form-control" id="inputLocationType" name="locationType" placeholder="Enter location type" />
-							<small id="inputLocationTypeHelp" class="form-text text-muted">Restaurant, monument, scenic view, etc.</small>
+							<select multiple class="form-control" id="inputLocationType" name="locationType">
+								<option>Restaurant</option>
+								<option>Monument</option>
+								<option>Landmarks</option>
+								<option>Student Hub</option>
+								<option>Education</option>
+								<option>Venues</option>
+							</select>
+							<small id="inputLocationTypeHelp" class="form-text text-muted">Click to choose</small>
 						</div>
 						<div class="form-group">
 							<label for="inputDesc">Description:</label>
@@ -188,15 +233,10 @@ if (isset($_POST['printAllLoc'])) {
 							<input type="text" class="form-control" id="inputLatitude" name="latitude" placeholder="" />
 						</div>
 						<button type="submit" class="btn btn-primary" name="suggestSubmit">Submit</button>
+						<button type="submit" class="btn btn-primary" name="jsonReload">Reload Map</button>
 						<!-- <button type="submit" class="btn btn-primary" name="printAllLoc">Show entire database</button> -->
-						<!-- <button type="submit" class="btn btn-primary" name="createGeojson">Create geojson.json</button> -->
 					</form>
 				</div>
-				<!-- <div class="row">
-					<?php
-
-					?>
-				</div> -->
 			</div>
 		</div>
 	</div>

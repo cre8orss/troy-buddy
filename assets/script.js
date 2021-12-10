@@ -7,47 +7,8 @@ const map = new mapboxgl.Map({
 	zoom: 15,
 });
 
-// const geojson = {
-//   type: 'FeatureCollection',
-//   features: [
-//     {
-//       type: 'Feature',
-//       geometry: {
-//         type: 'Point',
-//         coordinates: [-73.67746684445308, 42.73008980117925]
-//       },
-//       properties: {
-//         title: 'Rensselaer Polytechnic Institute',
-//         description: 'Landmark'
-//       }
-//     },
-//     {
-//       type: 'Feature',
-//       geometry: {
-//         type: 'Point',
-//         coordinates: [-73.67893648495593, 42.726907027257965]
-//       },
-//       properties: {
-//         title: 'Big Apple Pizzeria',
-//         description: 'Restaurant'
-//       }
-//     }
-//   ]
-// };
-
-// function addLocation(this) {
-// 	var edit = JSON.parse(geojson);
-// 	edit.features.push({
-// 		type: "Feature",
-// 		geometry: {
-// 			type: "Point",
-// 			coordinates: [],
-// 		},
-// 	});
-// }
-
-$.getJSON("assets/test.json", function (json) {
-	console.log(json); // this will show the info it in firebug console
+$.getJSON("assets/geojson.json", function (json) {
+	console.log(json); // this will show the info it in developer tools console
 	// add markers to map
 	for (const { geometry, properties } of json.features) {
 		// create a HTML element for each feature
@@ -63,17 +24,6 @@ $.getJSON("assets/test.json", function (json) {
 			)
 			.addTo(map);
 	}
-
-	// // Generates coordinates based on mouse position on map
-	// map.on("mousemove", (e) => {
-	// 	document.getElementById("info").innerHTML =
-	// 		// `e.point` is the x, y coordinates of the `mousemove` event
-	// 		// relative to the top-left corner of the map.
-	// 		JSON.stringify(e.point) +
-	// 		"<br />" +
-	// 		// `e.lngLat` is the longitude, latitude geographical position of the event.
-	// 		JSON.stringify(e.lngLat.wrap());
-	// });
 
 	// creates draggable marker which generates coordinates based on position on map
 	if (document.URL.includes("suggest.php")) {
