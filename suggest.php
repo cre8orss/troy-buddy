@@ -5,9 +5,53 @@ $pass = '';
 
 // Create connection
 $dbconn = new PDO("mysql:host=localhost;dbname=troybuddy", $user, $pass);
+$sqlLocTable = 'SELECT * FROM troybuddy.locations';
+$stmtLocTable = $dbconn->query($sqlLocTable);
+$rowsLocTable = $stmtLocTable->fetchAll();
 
-// unset($_POST);
 
+if (isset($_POST['suggestSubmit'])) {
+	$loc_name = addslashes($_REQUEST['locationName']);
+	$loc_desc = addslashes($_REQUEST['desc']);
+	$loc_type = addslashes($_REQUEST['locationType']);
+	$lng = $_REQUEST['longitude'];
+	$lat = $_REQUEST['latitude'];
+
+	// printf('%s, %s, %s, %s, %s', $loc_name, $loc_desc, $loc_type, $lng, $lat);
+	$sqlSuggest = "INSERT INTO troybuddy.locations (loc_name, loc_type, loc_desc, lng, lat) VALUES ('$loc_name','$loc_type','$loc_desc','$lng','$lat')";
+	$stmtSuggest = $dbconn->query($sqlSuggest);
+
+	$geojson = '{
+		"type": "FeatureCollection",
+		"features": [';
+
+	foreach ($rowsLocTable as $loc) {
+		$geojson .= '{
+			"type": "Feature",
+			 "geometry": {
+				 "type": "Point",
+				 "coordinates": [' . $loc['lng'] . ',' . $loc['lat'] . ']
+			 },
+			 "properties": {
+				 "title": "' . $loc['loc_name'] . '",
+				 "description": "' . $loc['loc_desc'] . '",
+				"locationType": "' . $loc['loc_type'] . '"
+			 }
+		},';
+	}
+	$geojsonfinal = rtrim($geojson, ", ");
+	$geojsonfinal .= ']}';
+	// echo $geojsonfinal;
+	$myfile = fopen("assets/test.json", "w") or die("Unable to open file.");
+	fwrite($myfile, $geojsonfinal);
+	fclose($myfile);
+}
+
+if (isset($_POST['printAllLoc'])) {
+	foreach ($rowsLocTable as $loc) {
+		printf("%s %s %s %s %s <br>", $loc['loc_name'], $loc['loc_type'], $loc['loc_desc'], $loc['lng'], $loc['lat']);
+	}
+}
 
 ?>
 
@@ -103,7 +147,7 @@ $dbconn = new PDO("mysql:host=localhost;dbname=troybuddy", $user, $pass);
 					<a class="nav-link" href="signup.php"><i class="bi bi-pencil-square"></i>Sign Up</a>
 				</li>
 				<li class="nav-item">
-				  	<a class="nav-link" href="mailinglist.php"><i class="bi bi-envelope-plus"></i>Mailing List</a>
+					<a class="nav-link" href="mailinglist.php"><i class="bi bi-envelope-plus"></i>Mailing List</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="reportaproblem.php"><i class="bi bi-binoculars"></i>Report A Problem</a>
@@ -144,23 +188,15 @@ $dbconn = new PDO("mysql:host=localhost;dbname=troybuddy", $user, $pass);
 							<input type="text" class="form-control" id="inputLatitude" name="latitude" placeholder="" />
 						</div>
 						<button type="submit" class="btn btn-primary" name="suggestSubmit">Submit</button>
+						<!-- <button type="submit" class="btn btn-primary" name="printAllLoc">Show entire database</button> -->
+						<!-- <button type="submit" class="btn btn-primary" name="createGeojson">Create geojson.json</button> -->
 					</form>
 				</div>
-				<div class="row">
+				<!-- <div class="row">
 					<?php
-					if (isset($_POST['suggestSubmit'])) {
-						$loc_name = addslashes($_REQUEST['locationName']);
-						$loc_desc = addslashes($_REQUEST['desc']);
-						$loc_type = addslashes($_REQUEST['locationType']);
-						$x_coor = $_REQUEST['longitude'];
-						$y_coor = $_REQUEST['latitude'];
 
-						printf('%s, %s, %s, %s, %s', $loc_name, $loc_desc, $loc_type, $x_coor, $y_coor);
-						$sqlSuggest = "INSERT INTO troybuddy.locations (loc_name, loc_type, loc_desc, x_coor, y_coor) VALUES ('$loc_name','$loc_type','$loc_desc','$x_coor','$y_coor')";
-						$stmtSuggest = $dbconn->query($sqlSuggest);
-					}
 					?>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</div>

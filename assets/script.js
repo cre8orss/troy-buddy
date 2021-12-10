@@ -46,7 +46,7 @@ const map = new mapboxgl.Map({
 // 	});
 // }
 
-$.getJSON("assets/geojson.json", function (json) {
+$.getJSON("assets/test.json", function (json) {
 	console.log(json); // this will show the info it in firebug console
 	// add markers to map
 	for (const { geometry, properties } of json.features) {
@@ -59,7 +59,7 @@ $.getJSON("assets/geojson.json", function (json) {
 			.setLngLat(geometry.coordinates)
 			.setPopup(
 				new mapboxgl.Popup({ offset: 25 }) // add popups
-					.setHTML(`<h3>${properties.title}</h3><p>${properties.description}</p>`)
+					.setHTML(`<h3>${properties.title}</h3><h4>${properties.locationType}</h4><p>${properties.description}</p>`)
 			)
 			.addTo(map);
 	}

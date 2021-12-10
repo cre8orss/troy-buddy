@@ -1,0 +1,80 @@
+{
+		"type": "FeatureCollection",
+		"features": [{
+			"type": "Feature",
+			 "geometry": {
+				 "type": "Point",
+				 "coordinates": [-73.67537689208984,42.73662185668945]
+			 },
+			 "properties": {
+				 "title": "Amante's Pizza",
+				 "description": "A broad mix of Italian, American & global comfort foods is dished out in a quaint house.",
+				"locationType": "Restaurant"
+			 }
+		},{
+			"type": "Feature",
+			 "geometry": {
+				 "type": "Point",
+				 "coordinates": [-73.68910217285156,42.72876739501953]
+			 },
+			 "properties": {
+				 "title": "Famous Lunch",
+				 "description": "Narrow joint with counter seats serving hot dogs, burgers & breakfast, plus sides & pie, since 1932.",
+				"locationType": "Restaurant"
+			 }
+		},{
+			"type": "Feature",
+			 "geometry": {
+				 "type": "Point",
+				 "coordinates": [-73.67324829101562,42.732723236083984]
+			 },
+			 "properties": {
+				 "title": "Testing",
+				 "description": "Very authentic hospital food",
+				"locationType": "Restaurant"
+			 }
+		},{
+			"type": "Feature",
+			 "geometry": {
+				 "type": "Point",
+				 "coordinates": [-73.69567256025243,42.72789980574481]
+			 },
+			 "properties": {
+				 "title": "Dinosaur BBQ",
+				 "description": "Barbecue chain serving Southern-style meats & draft brews in a retro setting (most have live music).",
+				"locationType": "Restaurant"
+			 }
+		},{
+			"type": "Feature",
+			 "geometry": {
+				 "type": "Point",
+				 "coordinates": [-73.68018474480105,42.72381838827067]
+			 },
+			 "properties": {
+				 "title": "Bite of Xian",
+				 "description": "Chinese restaurant with a solid selection.",
+				"locationType": "Restaurant"
+			 }
+		},{
+			"type": "Feature",
+			 "geometry": {
+				 "type": "Point",
+				 "coordinates": [-73.67663326500879,42.72990002396216]
+			 },
+			 "properties": {
+				 "title": "Rensselaer Student Union",
+				 "description": "Student union with convenience stores and food.",
+				"locationType": "Student Hub"
+			 }
+		},{
+			"type": "Feature",
+			 "geometry": {
+				 "type": "Point",
+				 "coordinates": [-73.67663326500879,42.72990002396216]
+			 },
+			 "properties": {
+				 "title": "Rensselaer Student Union",
+				 "description": "Student union with convenience stores and food.",
+				"locationType": "Student Hub"
+			 }
+		}]}
