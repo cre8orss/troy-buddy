@@ -92,7 +92,7 @@
           <a class="nav-link" href="signup.php"><i class="bi bi-pencil-square"></i>Sign Up</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="mailinglist.php"><i class="bi bi-envelope-plus"></i>Mailing List</a>
+          <a class="nav-link" href="mailinglist.php"><i class="bi bi-envelope"></i>Mailing List</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="reportaproblem.php"><i class="bi bi-binoculars"></i>Report A Problem</a>
