@@ -1,3 +1,7 @@
+<?php 
+  session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,12 +45,24 @@
         <li>
           <a class="nav-link" href="search.php"><i class="bi bi-search"></i>Search</a>
         </li>
+        <?php 
+        if (isset($_SESSION['id']) && isset($_SESSION['username'])) {
+        ?>
+        <li>
+          <a class="nav-link" href="logout.php"><i class="bi bi-box-arrow-in-right"></i>Log Out</a>
+        </li>
+        <?php 
+        } else {
+        ?>
         <li>
           <a class="nav-link" href="login.php"><i class="bi bi-box-arrow-in-right"></i>Log In</a>
         </li>
         <li>
           <a class="nav-link" href="signup.php"><i class="bi bi-pencil-square"></i>Sign Up</a>
         </li>
+        <?php 
+        }
+        ?>
         <li class="nav-item">
           <a class="nav-link" href="mailinglist.php"><i class="bi bi-envelope"></i>Mailing List</a>
         </li>
@@ -164,3 +180,5 @@
 </body>
 
 </html>
+
+
