@@ -63,12 +63,31 @@ error_reporting(0);
 $first_name = $_POST['Fname'];
 $last_name = $_POST['Lname'];
 $email = $_POST['emailaddress'];
-$subject = 'Welcome to the TroyBuddy Mailing List';
-$message = "You are now part of the TroyBuddy mailing list.";
 
-mail($email, $subject, $message);
+$servername = "localhost";
+$username = "root";
+$password = "";
 
+try {
+  $conn = new PDO("mysql:host=$servername;dbname=troybuddy", $username, $password);
+  // set the PDO error mode to exception
+  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+ 
+  try {
+    $stmt = $conn->prepare("INSERT INTO `mailing_list`(`email`, `first_name`, `last_name`) VALUES ('$email','$first_name','$last_name')");
+    $stmt->execute();
+
+    echo "<div class='container mt-5 w-50'><p> You have been successfully added to the mailing list.</p>";
+    echo "<a href='index.php'><button type='goback' class='btn btn-danger btn-lg'>Return to Home Page</button></a></div>";
+    } catch (PDOException $e) {
+      echo "<div class='container mt-5 w-50'><p>You have already been added to the mailing list.</p>";
+      echo "<a href='index.php'><button type='goback' class='btn btn-danger btn-lg'>Return to Home Page</button></a>";
+    }
+  } catch(PDOException $e) {
+    echo "Connection failed: " . $e->getMessage();
+  }
 ?>
+    
 <div class="w-50 mt-5 container">
     <p> You have been successfully added to the mailing list.</p>
     <a href="index.php"><button type="goback" class="btn btn-danger btn-lg">Return to Home Page</button></a>
