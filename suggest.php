@@ -59,7 +59,7 @@ if (isset($_POST['printAllLoc'])) {
 }
 
 // reloads the locations from the locations table if for some reason they don't load in
-if (isset($_POST['jsonReload'])){
+if (isset($_POST['jsonReload'])) {
 	$geojson = '{
 		"type": "FeatureCollection",
 		"features": [';
