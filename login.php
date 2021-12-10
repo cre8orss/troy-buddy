@@ -72,7 +72,7 @@
             <label for="password-email" class="form-label">Password</label>
             <input name="password" type="password" class="form-control" id="input-password" name="up2" aria-describedby="password-help" required placeholder="Enter your password">
         </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary">Sign In</button>
     </form>
   </div>
 </body>

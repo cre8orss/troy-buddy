@@ -29,13 +29,15 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         header("Location: login.php?error=Password is required");
         exit();
     } else {
-        $sql = "SELECT * FROM users WHERE username='$uname' AND password='$pass'";
+        //find user
+        $sql = "SELECT * FROM users WHERE username='$uname'";
         $result = mysqli_query($conn, $sql);
         if (mysqli_num_rows($result) === 1) {
             $row = mysqli_fetch_assoc($result);
-            if ($row['username'] === $uname && $row['password'] === $pass) {
+            //check hashed password
+            $validpass = password_verify($pass, $row['password']);
+            if ($row['username'] === $uname && $validpass) {
                 $_SESSION['username'] = $row['username'];
-                $_SESSION['name'] = $row['fname'];
                 $_SESSION['id'] = $row['id'];
                 header("Location: index.php");
                 exit();
@@ -49,7 +51,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     }
   }
 } else {
-  header("Location: explore.php");
+  header("Location: index.php");
   exit();
 }
 ?>

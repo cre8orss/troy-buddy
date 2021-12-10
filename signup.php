@@ -60,10 +60,10 @@
 
   <br>
   <div class="container">
-    <form>
+    <form action="register.php" method="post">
         <div class="mb-3">
             <label for="input-name" class="form-label">First Name</label>
-            <input type="name" class="form-control" id="input-name" aria-describedby="name-help" required placeholder="Enter your first name.">
+            <input name="fname" type="name" class="form-control" id="input-name" aria-describedby="name-help" required placeholder="Enter your first name.">
         </div>
         <div class="mb-3">
             <label for="input-name" class="form-label">Last Name</label>
@@ -71,13 +71,13 @@
           </div>
         <div class="mb-3">
             <label for="input-email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="input-email" aria-describedby="email-help" required placeholder="Enter your email.">
+            <input name="username" type="email" class="form-control" id="input-email" aria-describedby="email-help" required placeholder="Enter your email.">
         </div>
         <div class="mb-3">
             <label for="password-email" class="form-label">Password</label>
-            <input type="password" class="form-control" id="input-password" name="up2" aria-describedby="password-help" required placeholder="Enter your password">
+            <input name="password" type="password" class="form-control" id="input-password" name="up2" aria-describedby="password-help" required placeholder="Enter your password">
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" name="register" class="btn btn-primary">Register</button>
     </form>
   </div>
 </body>
