@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 07, 2021 at 04:28 PM
+-- Generation Time: Dec 10, 2021 at 07:07 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -32,17 +32,21 @@ CREATE TABLE `locations` (
   `loc_name` varchar(100) NOT NULL,
   `loc_type` varchar(100) NOT NULL,
   `loc_desc` varchar(1000) NOT NULL,
-  `x_coor` float NOT NULL,
-  `y_coor` float NOT NULL
+  `lng` double NOT NULL,
+  `lat` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `locations`
 --
 
-INSERT INTO `locations` (`id`, `loc_name`, `loc_type`, `loc_desc`, `x_coor`, `y_coor`) VALUES
-(3, 'Amante\'s Pizza', 'Restaurant', 'A broad mix of Italian, American & global comfort foods is dished out in a quaint house.', -73.6754, 42.7366),
-(11, 'Famous Lunch', 'Restaurant', 'Narrow joint with counter seats serving hot dogs, burgers & breakfast, plus sides & pie, since 1932.', -73.6891, 42.7288);
+INSERT INTO `locations` (`id`, `loc_name`, `loc_type`, `loc_desc`, `lng`, `lat`) VALUES
+(3, 'Amante\'s Pizza', 'Restaurant', 'A broad mix of Italian, American & global comfort foods is dished out in a quaint house.', -73.67537689208984, 42.73662185668945),
+(11, 'Famous Lunch', 'Restaurant', 'Narrow joint with counter seats serving hot dogs, burgers & breakfast, plus sides & pie, since 1932.', -73.68910217285156, 42.72876739501953),
+(16, 'Testing', 'Restaurant', 'Very authentic hospital food', -73.67324829101562, 42.732723236083984),
+(18, 'Dinosaur BBQ', 'Restaurant', 'Barbecue chain serving Southern-style meats & draft brews in a retro setting (most have live music).', -73.69567256025243, 42.72789980574481),
+(19, 'Bite of Xian', 'Restaurant', 'Chinese restaurant with a solid selection.', -73.68018474480105, 42.72381838827067),
+(20, 'Rensselaer Student Union', 'Student Hub', 'Student union with convenience stores and food.', -73.67663326500879, 42.72990002396216);
 
 -- --------------------------------------------------------
 
@@ -108,7 +112,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `locations`
 --
 ALTER TABLE `locations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `users`
