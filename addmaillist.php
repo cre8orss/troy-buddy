@@ -49,7 +49,7 @@
           <a class="nav-link active" href="mailinglist.php"><i class="bi bi-envelope"></i>Mailing List</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="reportaproblem.php"><i class="bi bi-binoculars"></i>Report A Problem</a>
+          <a class="nav-link" href="reportaproblem.php"><i class="bi bi-binoculars"></i>Report A Problem</a>
         </li>
       </ul>
     </div>
@@ -87,10 +87,6 @@ try {
     echo "Connection failed: " . $e->getMessage();
   }
 ?>
-    
-<div class="w-50 mt-5 container">
-    <p> You have been successfully added to the mailing list.</p>
-    <a href="index.php"><button type="goback" class="btn btn-danger btn-lg">Return to Home Page</button></a>
-</div>
+
 </body>
 </html>
