@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 10, 2021 at 07:07 AM
+-- Generation Time: Dec 10, 2021 at 09:25 PM
 -- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.10
+-- PHP Version: 7.4.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -47,6 +47,18 @@ INSERT INTO `locations` (`id`, `loc_name`, `loc_type`, `loc_desc`, `lng`, `lat`)
 (18, 'Dinosaur BBQ', 'Restaurant', 'Barbecue chain serving Southern-style meats & draft brews in a retro setting (most have live music).', -73.69567256025243, 42.72789980574481),
 (19, 'Bite of Xian', 'Restaurant', 'Chinese restaurant with a solid selection.', -73.68018474480105, 42.72381838827067),
 (20, 'Rensselaer Student Union', 'Student Hub', 'Student union with convenience stores and food.', -73.67663326500879, 42.72990002396216);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mailing_list`
+--
+
+CREATE TABLE `mailing_list` (
+  `email` varchar(255) NOT NULL,
+  `first_name` char(255) NOT NULL,
+  `last_name` char(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -97,6 +109,12 @@ CREATE TABLE `users` (
 --
 ALTER TABLE `locations`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mailing_list`
+--
+ALTER TABLE `mailing_list`
+  ADD PRIMARY KEY (`email`);
 
 --
 -- Indexes for table `users`
