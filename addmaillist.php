@@ -40,16 +40,16 @@
           <a class="nav-link" href="search.php"><i class="bi bi-search"></i>Search</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="login.php"><i class="bi bi-box-arrow-in-right"></i>Log In</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="signup.php"><i class="bi bi-pencil-square"></i>Sign Up</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link active" href="mailinglist.php"><i class="bi bi-envelope"></i>Mailing List</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="reportaproblem.php"><i class="bi bi-binoculars"></i>Report A Problem</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="login.php"><i class="bi bi-box-arrow-in-right"></i>Log In</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="signup.php"><i class="bi bi-pencil-square"></i>Sign Up</a>
         </li>
       </ul>
     </div>
