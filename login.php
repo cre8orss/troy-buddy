@@ -60,16 +60,19 @@
 
   <br>
   <div class="container">
-    <form class="needs-validation">
+    <form class="needs-validation" action="db.php" method="post">
+      <?php if (isset($_GET['error'])) { ?>
+        <p class="error"><?php echo $_GET['error']; ?></p>
+      <?php } ?>
         <div class="mb-3">
             <label for="input-email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="input-email" aria-describedby="email-help" required placeholder="Enter your email.">
+            <input name="username" type="email" class="form-control" id="input-email" aria-describedby="email-help" required placeholder="Enter your email.">
         </div>
         <div class="mb-3">
             <label for="password-email" class="form-label">Password</label>
-            <input type="password" class="form-control" id="input-password" name="up2" aria-describedby="password-help" required placeholder="Enter your password">
+            <input name="password" type="password" class="form-control" id="input-password" name="up2" aria-describedby="password-help" required placeholder="Enter your password">
         </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary">Sign In</button>
     </form>
   </div>
 </body>
