@@ -61,6 +61,9 @@
   <br>
   <div class="container">
     <form action="register.php" method="post">
+      <?php if (isset($_GET['error'])) { ?>
+        <p class="error"><?php echo $_GET['error']; ?></p>
+      <?php } ?>
         <div class="mb-3">
             <label for="input-name" class="form-label">First Name</label>
             <input name="fname" type="name" class="form-control" id="input-name" aria-describedby="name-help" required placeholder="Enter your first name.">
@@ -74,7 +77,7 @@
             <input name="username" type="email" class="form-control" id="input-email" aria-describedby="email-help" required placeholder="Enter your email.">
         </div>
         <div class="mb-3">
-            <label for="password-email" class="form-label">Password</label>
+            <label for="password-email" class="form-label">Password (at least 8 characters in length and should include at least one upper case letter, one number, and one special character)</label>
             <input name="password" type="password" class="form-control" id="input-password" name="up2" aria-describedby="password-help" required placeholder="Enter your password">
         </div>
         <button type="submit" name="register" class="btn btn-primary">Register</button>

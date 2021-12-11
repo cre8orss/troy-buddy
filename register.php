@@ -29,16 +29,23 @@ if(isset($_POST['register'])) {
     header("Location: signup.php?error=Password is required");
     exit();
   } else {
-    //FIX: character check
-
     //check if username exists
     $sql = "SELECT * FROM users WHERE username ='$uname'";
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) === 1) { //exists
-    //FIX: SHWO MESSAGE
       header("Location: signup.php?error=Email already taken");
       exit();
     } else { //doesn't exist
+      // validate password strength (https://www.codexworld.com/how-to/validate-password-strength-in-php/)
+      $uppercase = preg_match('@[A-Z]@', $password);
+      $lowercase = preg_match('@[a-z]@', $password);
+      $number    = preg_match('@[0-9]@', $password);
+      $specialChars = preg_match('@[^\w]@', $password);
+      
+      if(!$uppercase || !$lowercase || !$number || !$specialChars || strlen($password) < 8) {
+        header("Location: signup.php?error=Invalid password");
+        exit();
+      }
       //hash and salt the password so we don't store in plain text
       $opt = [ "cost" => 12];
       $hashed = password_hash($pass, PASSWORD_BCRYPT, $opt);
