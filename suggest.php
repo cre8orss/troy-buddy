@@ -10,46 +10,6 @@ $stmtLocTable = $dbconn->query($sqlLocTable);
 $rowsLocTable = $stmtLocTable->fetchAll();
 
 // code that submits the location information into the database
-if (isset($_POST['suggestSubmit'])) {
-	$loc_name = addslashes($_REQUEST['locationName']); // the addslashes escapes characters that would otherwise create errors
-	$loc_desc = addslashes($_REQUEST['desc']);
-	$loc_type = addslashes($_REQUEST['locationType']);
-	$lng = $_REQUEST['longitude'];
-	$lat = $_REQUEST['latitude'];
-
-	// inserts data into the locations table
-	$sqlSuggest = "INSERT INTO troybuddy.locations (loc_name, loc_type, loc_desc, lng, lat) VALUES ('$loc_name','$loc_type','$loc_desc','$lng','$lat')";
-	$stmtSuggest = $dbconn->query($sqlSuggest);
-
-	// reads through entire locations table and generates the geojson.json file for the Mapbox API
-	$geojson = '{
-		"type": "FeatureCollection",
-		"features": [';
-
-	foreach ($rowsLocTable as $loc) {
-		$geojson .= '{
-			"type": "Feature",
-			 "geometry": {
-				 "type": "Point",
-				 "coordinates": [' . $loc['lng'] . ',' . $loc['lat'] . ']
-			 },
-			 "properties": {
-				 "title": "' . $loc['loc_name'] . '",
-				 "description": "' . $loc['loc_desc'] . '",
-				"locationType": "' . $loc['loc_type'] . '"
-			 }
-		},';
-	}
-	$geojsonfinal = rtrim($geojson, ", ");
-	$geojsonfinal .= ']}';
-
-	// opens the geojson.json file, writes contents of geojsonfinal variable, and then closes file
-	$myfile = fopen("assets/geojson.json", "w") or die("Unable to open file.");
-	fwrite($myfile, $geojsonfinal);
-	fclose($myfile);
-
-	header("Refresh:0");
-}
 
 // testing function to print out the entire locations table
 if (isset($_POST['printAllLoc'])) {
@@ -236,6 +196,66 @@ if (isset($_POST['jsonReload'])) {
 						<button type="submit" class="btn btn-primary" name="jsonReload">Reload Map</button>
 						<!-- <button type="submit" class="btn btn-primary" name="printAllLoc">Show entire database</button> -->
 					</form>
+				</div>
+				<div class="row">
+					<?php
+					if (isset($_POST['suggestSubmit'])) {
+						// Required field names
+						$required = array('locationName', 'desc', 'locationType', 'longitude', 'latitude');
+
+						// Loop over field names, make sure each one exists and is not empty
+						$error = false;
+						foreach ($required as $field) {
+							if (empty($_POST[$field])) {
+								$error = true;
+							}
+						}
+
+						if ($error) {
+							echo "All fields are required.";
+						} else {
+							$loc_name = addslashes($_REQUEST['locationName']); // the addslashes escapes characters that would otherwise create errors
+							$loc_desc = addslashes($_REQUEST['desc']);
+							$loc_type = addslashes($_REQUEST['locationType']);
+							$lng = $_REQUEST['longitude'];
+							$lat = $_REQUEST['latitude'];
+
+							// inserts data into the locations table
+							$sqlSuggest = "INSERT INTO troybuddy.locations (loc_name, loc_type, loc_desc, lng, lat) VALUES ('$loc_name','$loc_type','$loc_desc','$lng','$lat')";
+							$stmtSuggest = $dbconn->query($sqlSuggest);
+
+							// reads through entire locations table and generates the geojson.json file for the Mapbox API
+							$geojson = '{
+								"type": "FeatureCollection",
+								"features": [';
+
+							foreach ($rowsLocTable as $loc) {
+								$geojson .= '{
+									"type": "Feature",
+									 "geometry": {
+										 "type": "Point",
+										 "coordinates": [' . $loc['lng'] . ',' . $loc['lat'] . ']
+									 },
+									 "properties": {
+										 "title": "' . $loc['loc_name'] . '",
+										 "description": "' . $loc['loc_desc'] . '",
+										"locationType": "' . $loc['loc_type'] . '"
+									 }
+								},';
+							}
+							$geojsonfinal = rtrim($geojson, ", ");
+							$geojsonfinal .= ']}';
+
+							// opens the geojson.json file, writes contents of geojsonfinal variable, and then closes file
+							$myfile = fopen("assets/geojson.json", "w") or die("Unable to open file.");
+							fwrite($myfile, $geojsonfinal);
+							fclose($myfile);
+
+							header("Refresh:0");
+						}
+					}
+
+					?>
 				</div>
 			</div>
 		</div>
